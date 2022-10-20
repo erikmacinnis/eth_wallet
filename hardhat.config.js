@@ -1,26 +1,13 @@
-require("@nomiclabs/hardhat-waffle");
+require("@nomicfoundation/hardhat-toolbox");
+require("@nomicfoundation/hardhat-chai-matchers");
 require('dotenv').config()
-// This is a sample Hardhat task. To learn how to create your own go to
-// https://hardhat.org/guides/create-task.html
-task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
-  const accounts = await hre.ethers.getSigners();
 
-  for (const account of accounts) {
-    console.log(account.address);
-  }
-});
-
-// You need to export an object to set up your config
-// Go to https://hardhat.org/config/ to learn more
-
-/**
- * @type import('hardhat/config').HardhatUserConfig
- */
- module.exports = {
-  solidity: "0.8.4",
+/** @type import('hardhat/config').HardhatUserConfig */
+module.exports = {
+  solidity: "0.8.0",
   networks:{
     goerli:{
-      url: 'https://goerli.infura.io/v3/d833143ef4714318b079b50a26a86c0f',
+      url: "https://goerli.infura.io/v3/e74aebcb315d408089b16cb32f4e5f69",
       accounts: [`0x${process.env.PRIVATE_KEY}`]
     }
   }
