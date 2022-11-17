@@ -21,6 +21,9 @@ const App = async () => {
         return data
     }
 
+    const common = new Common({chain: Chain.Mainnet, hardfork: Hardfork.London})
+    console.log(common)
+    console.log(FeeMarketEIP1559Transaction)
 
     //* A central Rpc connection could deploy the contract
     //! can probobly just use something like ethers

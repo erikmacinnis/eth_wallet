@@ -15,33 +15,51 @@ async function main() {
 
   // const lockedAmount = hre.ethers.utils.parseEther("1");
 
-  console.log("Dai")
+  // console.log("Dai")
+  console.log("Deploying TicketFactory")
 
-  const DaiToken = await hre.ethers.getContractFactory("DaiTokenMock");
-  const daiToken = await DaiToken.deploy();
+  // const walletAddress = "0x4a87B68C857025DD47043e6d0CD116EF066B5B82"
 
-  console.log(daiToken.address)
+  // const DaiToken = await hre.ethers.getContractFactory("DaiTokenMock");
+  // const daiToken = await DaiToken.deploy();
 
-  await daiToken.deployed();
+  const TicketFactory = await hre.ethers.getContractFactory("TicketFactory")
+  console.log("TicketFactory: ", TicketFactory)
+  const ticketFactory = await TicketFactory.deploy()
 
-  const EthWallet = await hre.ethers.getContractFactory("EthWallet");
-  const ethWallet = await EthWallet.deploy();
+  console.log("ticketFactory: ", ticketFactory)
+  // console.log(daiToken.address)
+  console.log(ticketFactory.address)
+  //Dai address = 0x6F583f4f68235f759e81ec8EF8445b379aCAD3d7
+  // await daiToken.deployed();
 
-  await ethWallet.deployed();
+  // TicketFactory Address = 0x0206DCEe3c13bF2494465CA19A5E4C77C9194cC6
 
-  console.log(ethWallet.address)
+  await ticketFactory.deployed();
 
-  const tx = await daiToken.issueTokens(ethWallet.address, BigNumber.from(4n * 10n**18n))
+  const tx = await ticketFactory.newTicketCollection(BigNumber.from(10), "First", "FRST")
 
-  const balance = await ethWallet.getBalanceToken(daiToken.address)
+  console.log(tx)
 
-  console.log("Balance of Dai: ", balance)
+  // const EthWallet = await hre.ethers.getContractFactory("EthWallet");
+  // const ethWallet = await EthWallet.deploy();
 
-  const tx2 = await ethWallet.transferToken(BigNumber.from(3n * 10n**18n), "0x044f060D389Dc8102430be326C7d45caad02d727", daiToken.address)
+  // await ethWallet.deployed();
 
-  console.log("Daitoken deployed to ", daiToken.address, " and 4 DAI issued ", ethWallet.address, " with tx: ", tx)
+  // console.log(ethWallet.address)
 
-  console.log("Transfered token to my wallet with: ", tx2)
+  // const tx = await daiToken.issueTokens(walletAddress, BigNumber.from(4n * 10n**18n))
+
+  // console.log(tx)
+  // const balance = await getBalanceToken(daiToken.address)
+
+  // console.log("Balance of Dai: ", balance)
+
+  // const tx2 = await ethWallet.transferToken(BigNumber.from(3n * 10n**18n), "0x044f060D389Dc8102430be326C7d45caad02d727", daiToken.address)
+
+  // console.log("Daitoken deployed to ", daiToken.address, " and 4 DAI issued ", ethWallet.address, " with tx: ", tx)
+
+  // console.log("Transfered token to my wallet with: ", tx2)
 
 
 }

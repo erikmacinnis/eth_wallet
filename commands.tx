@@ -1,0 +1,5 @@
+npx hardhat compile
+
+npx hardhat run ./scripts/deploy.js --network goerli
+
+npx hardhat verify --network goerli 0x0206DCEe3c13bF2494465CA19A5E4C77C9194cC6
