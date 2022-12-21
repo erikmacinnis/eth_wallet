@@ -3,6 +3,7 @@ pragma solidity ^0.8.0;
 
 contract TicketFactory{
 
+    //
     mapping(string => address) public allCollections;
     address public owner;
 
@@ -22,7 +23,7 @@ contract TicketFactory{
 //! Would allow batch mint for tickets that are exactly the same
 //* Each NFT I believe has a unique balance therefore you could use 
 //* them as unique tokens by checking their balance
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155URIStorage.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract TicketCollection is ERC721URIStorage {
@@ -33,6 +34,9 @@ contract TicketCollection is ERC721URIStorage {
     Counters.Counter private ticketsMinted;
     address public owner;
     uint256 public maxTickets;
+
+    //! Hold initial ticket price
+    //* Resale percentage ...
 
     constructor(uint256 totalTickets, string memory name, string memory ticker, address caller) ERC721(name, ticker) {
         owner = caller;

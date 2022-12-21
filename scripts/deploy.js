@@ -15,31 +15,31 @@ async function main() {
 
   // const lockedAmount = hre.ethers.utils.parseEther("1");
 
-  // console.log("Dai")
-  console.log("Deploying TicketFactory")
+  console.log("Dai")
+  // console.log("Deploying TicketFactory")
 
-  // const walletAddress = "0x4a87B68C857025DD47043e6d0CD116EF066B5B82"
+  const walletAddress = "0xADFDA9ffcF59153991805A63027BaB5af1ad0560"
 
-  // const DaiToken = await hre.ethers.getContractFactory("DaiTokenMock");
-  // const daiToken = await DaiToken.deploy();
+  const DaiToken = await hre.ethers.getContractFactory("DaiTokenMock");
+  const daiToken = await DaiToken.deploy();
 
-  const TicketFactory = await hre.ethers.getContractFactory("TicketFactory")
-  console.log("TicketFactory: ", TicketFactory)
-  const ticketFactory = await TicketFactory.deploy()
+  // const TicketFactory = await hre.ethers.getContractFactory("TicketFactory")
+  // console.log("TicketFactory: ", TicketFactory)
+  // const ticketFactory = await TicketFactory.deploy()
 
-  console.log("ticketFactory: ", ticketFactory)
-  // console.log(daiToken.address)
-  console.log(ticketFactory.address)
-  //Dai address = 0x6F583f4f68235f759e81ec8EF8445b379aCAD3d7
-  // await daiToken.deployed();
+  // console.log("ticketFactory: ", ticketFactory)
+  console.log(daiToken.address)
+  // console.log(ticketFactory.address)
+  // const daiaddress = 0x6F583f4f68235f759e81ec8EF8445b379aCAD3d7
+  await daiToken.deployed();
 
-  // TicketFactory Address = 0x0206DCEe3c13bF2494465CA19A5E4C77C9194cC6
+  // // TicketFactory Address = 0x0206DCEe3c13bF2494465CA19A5E4C77C9194cC6
 
-  await ticketFactory.deployed();
+  // await ticketFactory.deployed();
 
-  const tx = await ticketFactory.newTicketCollection(BigNumber.from(10), "First", "FRST")
+  // const tx = await ticketFactory.newTicketCollection(BigNumber.from(10), "First", "FRST")
 
-  console.log(tx)
+  // console.log(tx)
 
   // const EthWallet = await hre.ethers.getContractFactory("EthWallet");
   // const ethWallet = await EthWallet.deploy();
@@ -48,16 +48,15 @@ async function main() {
 
   // console.log(ethWallet.address)
 
-  // const tx = await daiToken.issueTokens(walletAddress, BigNumber.from(4n * 10n**18n))
+  const tx = await daiToken.issueTokens(walletAddress, BigNumber.from(4n * 10n**18n))
 
-  // console.log(tx)
+  console.log(tx)
   // const balance = await getBalanceToken(daiToken.address)
 
   // console.log("Balance of Dai: ", balance)
 
   // const tx2 = await ethWallet.transferToken(BigNumber.from(3n * 10n**18n), "0x044f060D389Dc8102430be326C7d45caad02d727", daiToken.address)
 
-  // console.log("Daitoken deployed to ", daiToken.address, " and 4 DAI issued ", ethWallet.address, " with tx: ", tx)
 
   // console.log("Transfered token to my wallet with: ", tx2)
 
