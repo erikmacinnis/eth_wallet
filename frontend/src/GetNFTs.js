@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const getNfts = (address) => {
 
-    const baseURL = `https://eth-goerli.g.alchemy.com/v2/kjOwb-DNYJyNIJ_qtIJNEe3JzOQgE1SU`;
+    const baseURL = `https://eth-goerli.g.alchemy.com/v2/${process.env.ALCHEMY_KEY}`;
     const url = `${baseURL}/getNFTs/?owner=${address}`;
 
     const config = {

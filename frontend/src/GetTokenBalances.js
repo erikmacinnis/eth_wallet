@@ -6,7 +6,7 @@ const getTokenBalances = (address) => {
     // Alchemy URL
 
     return new Promise(function async(resolve, reject){
-        const baseURL = `https://eth-goerli.g.alchemy.com/v2/kjOwb-DNYJyNIJ_qtIJNEe3JzOQgE1SU`;
+        const baseURL = `https://eth-goerli.g.alchemy.com/v2/${process.env.ALCHEMY_KEY}`;
 
         const data = JSON.stringify({
         "jsonrpc": "2.0",

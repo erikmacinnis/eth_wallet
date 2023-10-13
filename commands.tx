@@ -2,4 +2,7 @@ npx hardhat compile
 
 npx hardhat run ./scripts/deploy.js --network goerli
 
-npx hardhat verify --network goerli 0x0206DCEe3c13bF2494465CA19A5E4C77C9194cC6
+npx hardhat verify --network goerli 0x044f060D389Dc8102430be326C7d45caad02d727
+
+Sending Myself an NFT
+Find one on my open sea then 
